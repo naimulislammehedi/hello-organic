@@ -1,8 +1,8 @@
 
-// COUNTDOWN (3 days from now)
+// COUNTDOWN TIMER (3 days from now)
 function startCountdown() {
     const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 1);
+    targetDate.setDate(targetDate.getDate() + 3);
     targetDate.setHours(23, 59, 59, 999);
     function update() {
         const now = new Date();
@@ -29,6 +29,7 @@ const nextBtn = document.getElementById('nextSlideBtn');
 const dotsContainer = document.getElementById('dotsContainer');
 let currentIndex = 0;
 let autoInterval;
+
 function updateSlider() { slides.style.transform = `translateX(-${currentIndex * 100}%)`; updateDots(); }
 function updateDots() { document.querySelectorAll('.dot-indicator').forEach((dot, i) => { i === currentIndex ? dot.classList.add('bg-yellow-500', 'w-8') : dot.classList.remove('bg-yellow-500', 'w-8'); dot.classList.add('bg-gray-600', 'w-3'); if (i === currentIndex) dot.classList.remove('bg-gray-600'); }); }
 function createDots() { slideItems.forEach((_, idx) => { const dot = document.createElement('div'); dot.classList.add('h-2', 'w-3', 'rounded-full', 'bg-gray-600', 'cursor-pointer', 'transition-all', 'dot-indicator'); dot.addEventListener('click', () => { currentIndex = idx; updateSlider(); resetAuto(); }); dotsContainer.appendChild(dot); }); updateDots(); }
@@ -54,8 +55,6 @@ form.addEventListener('submit', function (e) {
     const orderData = { name, phone, address, quantity: qty, date: new Date().toISOString() };
     localStorage.setItem('metaBoosterOrder', JSON.stringify(orderData));
     console.log('Order saved:', orderData);
-    // Replace with your Google Apps Script URL for actual integration
-    // fetch('YOUR_GOOGLE_SCRIPT_URL', { method: 'POST', body: JSON.stringify(orderData), mode: 'no-cors' });
     const btn = document.getElementById('submitOrderBtn');
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> প্রক্রিয়াকরণ...';
     setTimeout(() => {
@@ -67,4 +66,11 @@ form.addEventListener('submit', function (e) {
 });
 
 // Smooth anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { const href = this.getAttribute('href'); if (href === "#" || href === "") return; const target = document.querySelector(href); if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); } }); });
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === "#" || href === "") return;
+        const target = document.querySelector(href);
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+});
