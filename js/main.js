@@ -2,7 +2,7 @@
 // COUNTDOWN TIMER (3 days from now)
 function startCountdown() {
     const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 3);
+    targetDate.setDate(targetDate.getDate() + 1);
     targetDate.setHours(23, 59, 59, 999);
     function update() {
         const now = new Date();
