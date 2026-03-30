@@ -1,4 +1,3 @@
-/* ========== ENHANCED STYLES FOR VISIBILITY ========== */
 * {
     font-family: 'Inter', sans-serif;
     scroll-behavior: smooth;
@@ -16,7 +15,7 @@ body {
     font-weight: 800;
 }
 
-/* ========== HIGHLY VISIBLE CTA BUTTON ========== */
+/* Highly visible CTA button */
 .cta-button {
     background: linear-gradient(105deg, #FFD966 0%, #FFB347 60%, #FFA500 100%);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -29,9 +28,9 @@ body {
     cursor: pointer;
     color: #000000 !important;
     text-shadow: none;
+    animation: ctaPulse 1.8s infinite;
 }
 
-/* Shine animation on hover */
 .cta-button::before {
     content: '';
     position: absolute;
@@ -52,7 +51,6 @@ body {
     left: 100%;
 }
 
-/* Subtle pulse to attract attention */
 @keyframes ctaPulse {
     0% {
         box-shadow: 0 0 0 0 rgba(255, 180, 50, 0.6);
@@ -67,15 +65,7 @@ body {
     }
 }
 
-.cta-button {
-    animation: ctaPulse 1.8s infinite;
-}
-
-.cta-button:hover {
-    animation: none;
-}
-
-/* GRAB NOW button in countdown bar */
+/* GRAB NOW button */
 .bg-black.text-white.px-6.py-2.rounded-full.font-bold {
     background: linear-gradient(105deg, #1e1e1e, #000000) !important;
     transition: all 0.2s;
@@ -91,7 +81,7 @@ body {
     border-color: #FFD700;
 }
 
-/* WhatsApp floating button */
+/* WhatsApp button */
 .floating-whatsapp {
     position: fixed;
     bottom: 20px;
@@ -130,7 +120,6 @@ body {
     }
 }
 
-/* Card styles */
 .card-blur {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
@@ -160,7 +149,6 @@ body {
     box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
 }
 
-/* Review slider */
 .review-slider-container {
     max-width: 700px;
     margin: 0 auto;
@@ -185,7 +173,6 @@ body {
     color: black;
 }
 
-/* Details summary */
 details summary::-webkit-details-marker {
     display: none;
 }

@@ -1,5 +1,5 @@
 
-// COUNTDOWN TIMER (3 days from now)
+// COUNTDOWN TIMER (1 day from now)
 function startCountdown() {
     const targetDate = new Date();
     targetDate.setDate(targetDate.getDate() + 1);
@@ -21,6 +21,35 @@ function startCountdown() {
 }
 startCountdown();
 
+// Dynamic Pricing Logic
+const quantitySelect = document.getElementById('quantity');
+const paymentSelect = document.getElementById('paymentMethod');
+const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+const deliveryNote = document.getElementById('deliveryNote');
+const deliveryCharge = 120;
+
+function updatePrice() {
+    const selectedOption = quantitySelect.options[quantitySelect.selectedIndex];
+    const basePrice = parseInt(selectedOption.getAttribute('data-price'));
+    const paymentMethod = paymentSelect.value;
+    const isBkash = paymentMethod === 'bkash';
+    const courier = isBkash ? 0 : deliveryCharge;
+    const total = basePrice + courier;
+
+    totalPriceDisplay.innerText = total.toLocaleString('bn-BD') + ' ৳';
+    if (isBkash) {
+        deliveryNote.innerText = 'ডেলিভারি চার্জ ফ্রি (বিকাশ পেমেন্টে)';
+        deliveryNote.classList.add('text-green-400');
+    } else {
+        deliveryNote.innerText = `+ ${deliveryCharge} ৳ ডেলিভারি চার্জ`;
+        deliveryNote.classList.remove('text-green-400');
+    }
+}
+
+quantitySelect.addEventListener('change', updatePrice);
+paymentSelect.addEventListener('change', updatePrice);
+updatePrice(); // initial
+
 // REVIEW SLIDER
 const slides = document.getElementById('reviewSlides');
 const slideItems = document.querySelectorAll('#reviewSlides > div');
@@ -41,28 +70,61 @@ nextBtn.addEventListener('click', nextSlide);
 createDots();
 resetAuto();
 
-// FORM HANDLER
+// FORM HANDLER with WhatsApp integration
 const form = document.getElementById('orderForm');
 const modal = document.getElementById('successModal');
 window.closeModal = function () { modal.classList.add('hidden'); modal.classList.remove('flex'); };
+
+// Replace with your actual WhatsApp number (country code without '+')
+const whatsappNumber = '8801xxxxxxxx'; // change this
+
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     const name = document.getElementById('fullName').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const address = document.getElementById('address').value.trim();
-    const qty = document.getElementById('quantity').value;
-    if (!name || !phone || !address) { alert('দয়া করে নাম, ফোন এবং ঠিকানা পূরণ করুন'); return; }
-    const orderData = { name, phone, address, quantity: qty, date: new Date().toISOString() };
+    const quantityOption = quantitySelect.options[quantitySelect.selectedIndex];
+    const quantityText = quantityOption.text;
+    const basePrice = parseInt(quantityOption.getAttribute('data-price'));
+    const paymentMethod = paymentSelect.value;
+    const isBkash = paymentMethod === 'bkash';
+    const courier = isBkash ? 0 : deliveryCharge;
+    const totalPrice = basePrice + courier;
+
+    if (!name || !phone || !address) {
+        alert('দয়া করে নাম, ফোন এবং ঠিকানা পূরণ করুন');
+        return;
+    }
+
+    // Prepare WhatsApp message
+    const message = `📦 *নতুন অর্ডার* 📦%0A%0A👤 *নাম:* ${encodeURIComponent(name)}%0A📞 *মোবাইল:* ${encodeURIComponent(phone)}%0A🏠 *ঠিকানা:* ${encodeURIComponent(address)}%0A📦 *প্যাকেজ:* ${encodeURIComponent(quantityText)}%0A💰 *পণ্যের মূল্য:* ${basePrice} ৳%0A🚚 *ডেলিভারি চার্জ:* ${isBkash ? 'ফ্রি (বিকাশ)' : courier + ' ৳'}%0A💵 *মোট মূল্য:* ${totalPrice} ৳%0A💳 *পেমেন্ট পদ্ধতি:* ${paymentMethod === 'bkash' ? 'বিকাশ' : 'ক্যাশ অন ডেলিভারি'}%0A%0A⏰ *তারিখ:* ${new Date().toLocaleString('bn-BD')}`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    // Store order in localStorage (optional)
+    const orderData = { name, phone, address, quantity: quantityText, basePrice, courier, totalPrice, paymentMethod, date: new Date().toISOString() };
     localStorage.setItem('metaBoosterOrder', JSON.stringify(orderData));
-    console.log('Order saved:', orderData);
+
+    // Show loading on button
     const btn = document.getElementById('submitOrderBtn');
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> প্রক্রিয়াকরণ...';
+    btn.disabled = true;
+
+    // Open WhatsApp in a new window (or same if you prefer)
+    window.open(whatsappUrl, '_blank');
+
+    // Show modal after a short delay
     setTimeout(() => {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
         form.reset();
         btn.innerHTML = 'অর্ডার কনফার্ম করুন';
-    }, 600);
+        btn.disabled = false;
+        // Reset to default selections
+        quantitySelect.selectedIndex = 0;
+        paymentSelect.selectedIndex = 0;
+        updatePrice();
+    }, 800);
 });
 
 // Smooth anchor links
