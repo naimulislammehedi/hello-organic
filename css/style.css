@@ -15,7 +15,7 @@ body {
     font-weight: 800;
 }
 
-/* Highly visible CTA button */
+/* CTA button */
 .cta-button {
     background: linear-gradient(105deg, #FFD966 0%, #FFB347 60%, #FFA500 100%);
     transition: transform 0.3s ease, box-shadow 0.3s ease;

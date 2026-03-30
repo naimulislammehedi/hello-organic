@@ -76,8 +76,7 @@ const modal = document.getElementById('successModal');
 window.closeModal = function () { modal.classList.add('hidden'); modal.classList.remove('flex'); };
 
 // Replace with your actual WhatsApp number (country code without '+')
-const whatsappNumber = '8801xxxxxxxx'; // change this
-
+const whatsappNumber = '8801881913339'; 
 form.addEventListener('submit', function (e) {
     e.preventDefault();
     const name = document.getElementById('fullName').value.trim();

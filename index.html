@@ -13,193 +13,14 @@
         href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap"
         rel="stylesheet">
 
-    <!-- <style>
-        * {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: #000000;
-        }
-
-        .gold-text {
-            background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 800;
-        }
-
-        /* Highly visible CTA button */
-        .cta-button {
-            background: linear-gradient(105deg, #FFD966 0%, #FFB347 60%, #FFA500 100%);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 15px rgba(255, 180, 50, 0.7), 0 4px 12px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(255, 215, 0, 0.5);
-            cursor: pointer;
-            color: #000000 !important;
-            text-shadow: none;
-            animation: ctaPulse 1.8s infinite;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255, 180, 50, 0.9), 0 8px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        @keyframes ctaPulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 180, 50, 0.6);
-            }
-            70% {
-                box-shadow: 0 0 0 12px rgba(255, 180, 50, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(255, 180, 50, 0);
-            }
-        }
-
-        /* GRAB NOW button */
-        .bg-black.text-white.px-6.py-2.rounded-full.font-bold {
-            background: linear-gradient(105deg, #1e1e1e, #000000) !important;
-            transition: all 0.2s;
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-            font-weight: 700;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .bg-black.text-white.px-6.py-2.rounded-full.font-bold:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-            background: #000000 !important;
-            border-color: #FFD700;
-        }
-
-        /* WhatsApp button */
-        .floating-whatsapp {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: pulse 2s infinite;
-        }
-
-        .floating-whatsapp:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-            100% { transform: scale(1); }
-        }
-
-        .card-blur {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .product-card {
-            background: linear-gradient(145deg, #111111 0%, #0a0a0a 100%);
-            border: 1px solid #2a2a2a;
-            transition: all 0.25s;
-        }
-
-        .product-card:hover {
-            border-color: #F59E0B;
-            transform: translateY(-4px);
-        }
-
-        .glass-input {
-            background: #1f1f1f;
-            border: 1px solid #3a3a3a;
-            transition: 0.2s;
-        }
-
-        .glass-input:focus {
-            border-color: #F59E0B;
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
-        }
-
-        .review-slider-container {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .slide-btn {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .slide-btn:hover {
-            background: #F59E0B;
-            color: black;
-        }
-
-        details summary::-webkit-details-marker {
-            display: none;
-        }
-
-        details summary {
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .transition-transform {
-            transition: transform 0.2s;
-        }
-    </style>  -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
-    <link rel="stylesheet" href="./css/style.css">
+
 <body class="bg-black text-gray-200">
 
-    <!-- WhatsApp Button (replace with your number) -->
+    <!-- WhatsApp Button -->
     <a href="https://wa.me/8801881913339?text=I'm%20interested%20in%20Meta%20Booster%20Combo" class="floating-whatsapp"
         target="_blank" rel="noopener">
         <i class="fab fa-whatsapp"></i>
@@ -254,7 +75,8 @@
                 </div>
             </div>
             <a href="#order"
-                class="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-gray-800 transition shadow-md hover:shadow-lg">GRAB NOW</a>
+                class="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-gray-800 transition shadow-md hover:shadow-lg">GRAB
+                NOW</a>
         </div>
     </section>
 
@@ -440,7 +262,7 @@
         </div>
     </section>
 
-    <!-- Q&A Section (refined text) -->
+    <!-- Q&A Section -->
     <section class="py-20 bg-black">
         <div class="container mx-auto px-6 max-w-3xl">
             <h2 class="text-3xl font-bold mb-10 text-center">Questions? <span class="gold-text">We Have Answers</span>
@@ -593,8 +415,8 @@
                                 <option value="2" data-price="2965">২ মাসের কোর্স (২০% ডিসকাউন্ট) - ২,৯৬৫ ৳</option>
                                 <option value="3" data-price="4285">৩ মাসের কোর্স (৩০% ডিসকাউন্ট) - ৪,২৮৫ ৳</option>
                             </select></div>
-                        <div><label class="block text-sm font-bold mb-1">পেমেন্ট পদ্ধতি</label><select id="paymentMethod"
-                                class="w-full glass-input p-3 rounded-lg">
+                        <div><label class="block text-sm font-bold mb-1">পেমেন্ট পদ্ধতি</label><select
+                                id="paymentMethod" class="w-full glass-input p-3 rounded-lg">
                                 <option value="cod">ক্যাশ অন ডেলিভারি (ডেলিভারি চার্জ ১২০ ৳)</option>
                                 <option value="bkash">বিকাশ (ডেলিভারি চার্জ ফ্রি)</option>
                             </select></div>
@@ -620,7 +442,7 @@
         <div class="bg-zinc-900 p-8 rounded-3xl max-w-md w-full text-center border border-yellow-500 shadow-2xl">
             <div class="text-6xl text-green-500 mb-4"><i class="fas fa-check-circle"></i></div>
             <h3 class="text-2xl font-bold mb-2">অর্ডার সফল হয়েছে!</h3>
-            <p class="text-gray-400 mb-6">ধন্যবাদ! আমাদের এজেন্ট ২৪ ঘণ্টার মধ্যে কল করে ডেলিভারি কনফার্ম করবেন।</p>
+            <p class="text-gray-400 mb-6">ধন্যবাদ! আমাদের এজেন্ট ১ ঘণ্টার মধ্যে কল করে ডেলিভারি কনফার্ম করবেন।</p>
             <button onclick="closeModal()" class="bg-yellow-500 text-black px-8 py-2 rounded-full font-bold">বন্ধ
                 করুন</button>
         </div>
